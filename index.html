@@ -4,10 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Rana Abdullah — Backend Developer</title>
-<!-- fonts with fallback -->
-<style>
-@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&family=Space+Grotesk:wght@300;400;600;700&display=swap');
-</style>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&family=Space+Grotesk:wght@300;400;600;700&display=swap" rel="stylesheet">
 <style>
   :root {
     --bg: #080b0f;
@@ -19,8 +16,8 @@
     --accent3: #ff4d6d;
     --text: #cdd9e5;
     --muted: #546e7a;
-    --mono: 'JetBrains Mono', 'Courier New', Courier, monospace;
-    --sans: 'Space Grotesk', 'Segoe UI', system-ui, -apple-system, sans-serif;
+    --mono: 'JetBrains Mono', monospace;
+    --sans: 'Space Grotesk', sans-serif;
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -34,8 +31,6 @@
     overflow-x: hidden;
     cursor: none;
   }
-
-  a, button { cursor: none; }
 
   /* CUSTOM CURSOR */
   .cursor {
@@ -201,7 +196,8 @@
     color: var(--accent);
     letter-spacing: 3px;
     margin-bottom: 24px;
-    animation: fadeUp 0.6s 0.1s ease both;
+    opacity: 0;
+    animation: fadeUp 0.6s 0.2s ease forwards;
   }
 
   .hero-name {
@@ -210,7 +206,8 @@
     line-height: 0.95;
     letter-spacing: -3px;
     margin-bottom: 24px;
-    animation: fadeUp 0.6s 0.2s ease both;
+    opacity: 0;
+    animation: fadeUp 0.6s 0.4s ease forwards;
   }
 
   .hero-name .line2 {
@@ -231,13 +228,15 @@
     max-width: 520px;
     margin-bottom: 48px;
     font-weight: 300;
-    animation: fadeUp 0.6s 0.3s ease both;
+    opacity: 0;
+    animation: fadeUp 0.6s 0.6s ease forwards;
   }
 
   .hero-cta {
     display: flex;
     gap: 16px;
-    animation: fadeUp 0.6s 0.4s ease both;
+    opacity: 0;
+    animation: fadeUp 0.6s 0.8s ease forwards;
   }
 
   .btn-primary {
@@ -280,7 +279,8 @@
     border: 1px solid var(--border);
     border-radius: 8px;
     overflow: hidden;
-    animation: fadeUp 0.8s 0.5s ease both;
+    opacity: 0;
+    animation: fadeUp 0.8s 1s ease forwards;
     font-family: var(--mono);
   }
 
@@ -335,12 +335,6 @@
     from { opacity: 0; transform: translateY(24px); }
     to { opacity: 1; transform: translateY(0); }
   }
-
-  .hero-tag { animation: fadeUp 0.6s 0.1s ease both; }
-  .hero-name { animation: fadeUp 0.6s 0.2s ease both; }
-  .hero-desc { animation: fadeUp 0.6s 0.3s ease both; }
-  .hero-cta { animation: fadeUp 0.6s 0.4s ease both; }
-  .hero-terminal { animation: fadeUp 0.8s 0.5s ease both; }
 
   /* SECTION COMMON */
   section { padding: 100px 60px; position: relative; z-index: 2; }
@@ -700,14 +694,14 @@
 
   /* SCROLL REVEAL */
   .reveal {
-    opacity: 1;
-    transform: translateY(0);
+    opacity: 0;
+    transform: translateY(30px);
     transition: opacity 0.7s ease, transform 0.7s ease;
   }
 
-  .reveal.hidden {
-    opacity: 0;
-    transform: translateY(30px);
+  .reveal.visible {
+    opacity: 1;
+    transform: none;
   }
 
   @media (max-width: 1100px) {
@@ -741,12 +735,9 @@
     <li><a href="#projects">projects</a></li>
     <li><a href="#contact">contact</a></li>
   </ul>
-  <div style="display:flex;align-items:center;gap:20px;">
-    <a href="Rana_Abdullah_Resume.pdf" download style="font-family:var(--mono);font-size:11px;color:var(--accent);border:1px solid var(--accent);padding:7px 14px;text-decoration:none;letter-spacing:1px;transition:all 0.2s;" onmouseover="this.style.background='var(--accent)';this.style.color='var(--bg)'" onmouseout="this.style.background='transparent';this.style.color='var(--accent)'">⬇ RESUME</a>
-    <div class="nav-status">
-      <div class="status-dot"></div>
-      available for hire
-    </div>
+  <div class="nav-status">
+    <div class="status-dot"></div>
+    available for hire
   </div>
 </nav>
 
@@ -953,7 +944,7 @@
     <div class="contact-socials reveal">
       <a href="https://github.com/ranabdullah01" target="_blank" class="social-link">⬡ GITHUB</a>
       <a href="https://www.linkedin.com/in/rana-abdullah-hassan" target="_blank" class="social-link">⬡ LINKEDIN</a>
-      <a href="/cdn-cgi/l/email-protection#d7a5b6b9b6b5b3a2bbbbb6bfe6efe697b0bab6bebbf9b4b8ba" class="social-link">⬡ EMAIL</a>
+      <a href="mailto:ranabdullah181@gmail.com" class="social-link">⬡ EMAIL</a>
     </div>
   </div>
 </section>
@@ -965,7 +956,7 @@
   <span>Pakistan — <span class="accent">PKT</span></span>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
   // Custom cursor
   const cursor = document.getElementById('cursor');
   const ring = document.getElementById('cursorRing');
@@ -997,13 +988,12 @@
     });
   });
 
-  // Scroll reveal - add hidden class via JS, remove on intersect
+  // Scroll reveal with stagger per-group
   const reveals = document.querySelectorAll('.reveal');
-  reveals.forEach(el => el.classList.add('hidden'));
   const observer = new IntersectionObserver(entries => {
     entries.forEach((e, i) => {
       if (e.isIntersecting) {
-        setTimeout(() => e.target.classList.remove('hidden'), i * 80);
+        setTimeout(() => e.target.classList.add('visible'), i * 80);
         observer.unobserve(e.target);
       }
     });
@@ -1097,4 +1087,9 @@
   document.querySelector('.form-btn').addEventListener('click', () => {
     const btn = document.querySelector('.form-btn span');
     btn.textContent = 'MESSAGE SENT ✓';
-    document.querySelec
+    document.querySelector('.form-btn').style.borderColor = 'var(--accent)';
+    setTimeout(() => btn.textContent = 'TRANSMIT MESSAGE →', 3000);
+  });
+</script>
+</body>
+</html>
