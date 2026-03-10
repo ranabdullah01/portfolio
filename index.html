@@ -4,7 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Rana Abdullah — Backend Developer</title>
-<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&family=Space+Grotesk:wght@300;400;600;700&display=swap" rel="stylesheet">
+<!-- fonts with fallback -->
+<style>
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&family=Space+Grotesk:wght@300;400;600;700&display=swap');
+</style>
 <style>
   :root {
     --bg: #080b0f;
@@ -16,8 +19,8 @@
     --accent3: #ff4d6d;
     --text: #cdd9e5;
     --muted: #546e7a;
-    --mono: 'JetBrains Mono', monospace;
-    --sans: 'Space Grotesk', sans-serif;
+    --mono: 'JetBrains Mono', 'Courier New', Courier, monospace;
+    --sans: 'Space Grotesk', 'Segoe UI', system-ui, -apple-system, sans-serif;
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -29,10 +32,11 @@
     color: var(--text);
     font-family: var(--sans);
     overflow-x: hidden;
-    cursor: none;
   }
 
-  /* CUSTOM CURSOR */
+  /* CUSTOM CURSOR - only active when JS works */
+  body.cursor-active { cursor: none; }
+  body.cursor-active a, body.cursor-active button { cursor: none; }
   .cursor {
     width: 8px; height: 8px;
     background: var(--accent);
@@ -196,8 +200,7 @@
     color: var(--accent);
     letter-spacing: 3px;
     margin-bottom: 24px;
-    opacity: 0;
-    animation: fadeUp 0.6s 0.2s ease forwards;
+    animation: fadeUp 0.6s 0.1s ease both;
   }
 
   .hero-name {
@@ -206,8 +209,7 @@
     line-height: 0.95;
     letter-spacing: -3px;
     margin-bottom: 24px;
-    opacity: 0;
-    animation: fadeUp 0.6s 0.4s ease forwards;
+    animation: fadeUp 0.6s 0.2s ease both;
   }
 
   .hero-name .line2 {
@@ -228,15 +230,13 @@
     max-width: 520px;
     margin-bottom: 48px;
     font-weight: 300;
-    opacity: 0;
-    animation: fadeUp 0.6s 0.6s ease forwards;
+    animation: fadeUp 0.6s 0.3s ease both;
   }
 
   .hero-cta {
     display: flex;
     gap: 16px;
-    opacity: 0;
-    animation: fadeUp 0.6s 0.8s ease forwards;
+    animation: fadeUp 0.6s 0.4s ease both;
   }
 
   .btn-primary {
@@ -279,8 +279,7 @@
     border: 1px solid var(--border);
     border-radius: 8px;
     overflow: hidden;
-    opacity: 0;
-    animation: fadeUp 0.8s 1s ease forwards;
+    animation: fadeUp 0.8s 0.5s ease both;
     font-family: var(--mono);
   }
 
@@ -335,6 +334,12 @@
     from { opacity: 0; transform: translateY(24px); }
     to { opacity: 1; transform: translateY(0); }
   }
+
+  .hero-tag { animation: fadeUp 0.6s 0.1s ease both; }
+  .hero-name { animation: fadeUp 0.6s 0.2s ease both; }
+  .hero-desc { animation: fadeUp 0.6s 0.3s ease both; }
+  .hero-cta { animation: fadeUp 0.6s 0.4s ease both; }
+  .hero-terminal { animation: fadeUp 0.8s 0.5s ease both; }
 
   /* SECTION COMMON */
   section { padding: 100px 60px; position: relative; z-index: 2; }
@@ -694,14 +699,14 @@
 
   /* SCROLL REVEAL */
   .reveal {
-    opacity: 0;
-    transform: translateY(30px);
+    opacity: 1;
+    transform: translateY(0);
     transition: opacity 0.7s ease, transform 0.7s ease;
   }
 
-  .reveal.visible {
-    opacity: 1;
-    transform: none;
+  .reveal.hidden {
+    opacity: 0;
+    transform: translateY(30px);
   }
 
   @media (max-width: 1100px) {
@@ -753,7 +758,7 @@
     <div class="hero-tag">// BACKEND DEVELOPER</div>
     <h1 class="hero-name">
       Rana<br>
-      <span class="line2">Abdullah<br><span class="accent-word">Hassaan.</span></span>
+      <span class="line2">Abdullah<br><span class="accent-word">Hassan.</span></span>
     </h1>
     <p class="hero-desc">
       Architecting robust backends, distributed systems, and APIs that scale.
@@ -777,7 +782,7 @@
       <div class="t-line"><span class="t-out">{</span></div>
       <div class="t-line"><span class="t-out">&nbsp;&nbsp;<span class="t-key">"name"</span>: <span class="t-val">"Rana Abdullah"</span>,</span></div>
       <div class="t-line"><span class="t-out">&nbsp;&nbsp;<span class="t-key">"role"</span>: <span class="t-val">"Backend Developer"</span>,</span></div>
-      <div class="t-line"><span class="t-out">&nbsp;&nbsp;<span class="t-key">"stack"</span>: [<span class="t-val">".NET", "NestJS", "MSSQL"</span>],</span></div>
+      <div class="t-line"><span class="t-out">&nbsp;&nbsp;<span class="t-key">"stack"</span>: [<span class="t-val">".NET", "Node", "MSSQL"</span>],</span></div>
       <div class="t-line"><span class="t-out">&nbsp;&nbsp;<span class="t-key">"experience"</span>: <span class="t-val">"1 year"</span>,</span></div>
       <div class="t-line"><span class="t-out">&nbsp;&nbsp;<span class="t-key">"available"</span>: <span class="t-val">true</span></span></div>
       <div class="t-line"><span class="t-out">}</span></div>
@@ -794,8 +799,8 @@
   </div>
   <div class="about-grid reveal">
     <div class="about-text">
-      <p>I'm <strong>Rana Abdullah Hassaan</strong> — a backend developer who lives in the server-side of things. I build APIs, microservices, and systems that power real products.</p>
-      <p>My work spans <strong>full-stack backend development</strong>, RESTful APIs, and enterprise-grade systems using <strong>.NET, Nestjs, and SQL Server</strong>.</p>
+      <p>I'm <strong>Rana Abdullah Hassan</strong> — a backend developer who lives in the server-side of things. I build APIs, microservices, and systems that power real products.</p>
+      <p>My work spans <strong>full-stack backend development</strong>, RESTful APIs, and enterprise-grade systems using <strong>.NET, Node.js, and SQL Server</strong>.</p>
       <p>I don't just write code — I architect solutions. Every system I build is designed to be <strong>scalable, maintainable, and fast</strong> under pressure.</p>
     </div>
     <div class="about-stats">
@@ -896,7 +901,7 @@
       <h3 class="project-title">RouteIQ</h3>
       <p class="project-desc">An intelligent route optimization system for logistics and delivery operations. Backend-heavy with smart pathfinding algorithms and real-time data processing.</p>
       <div class="project-tags">
-        <span class="project-tag">NestJS</span>
+        <span class="project-tag">NODE.JS</span>
         <span class="project-tag">MSSQL</span>
         <span class="project-tag">REST API</span>
         <span class="project-tag">ALGORITHMS</span>
@@ -946,7 +951,7 @@
     </div>
     <div class="contact-socials reveal">
       <a href="https://github.com/ranabdullah01" target="_blank" class="social-link">⬡ GITHUB</a>
-      <a href="https://www.linkedin.com/in/rana-abdullah-hassaan" target="_blank" class="social-link">⬡ LINKEDIN</a>
+      <a href="https://www.linkedin.com/in/rana-abdullah-hassan" target="_blank" class="social-link">⬡ LINKEDIN</a>
       <a href="/cdn-cgi/l/email-protection#d7a5b6b9b6b5b3a2bbbbb6bfe6efe697b0bab6bebbf9b4b8ba" class="social-link">⬡ EMAIL</a>
     </div>
   </div>
@@ -960,7 +965,8 @@
 </footer>
 
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-  // Custom cursor
+  // Custom cursor - only activate when JS is running fine
+  document.body.classList.add('cursor-active');
   const cursor = document.getElementById('cursor');
   const ring = document.getElementById('cursorRing');
   let mx = 0, my = 0, rx = 0, ry = 0;
@@ -991,12 +997,13 @@
     });
   });
 
-  // Scroll reveal with stagger per-group
+  // Scroll reveal - add hidden class via JS, remove on intersect
   const reveals = document.querySelectorAll('.reveal');
+  reveals.forEach(el => el.classList.add('hidden'));
   const observer = new IntersectionObserver(entries => {
     entries.forEach((e, i) => {
       if (e.isIntersecting) {
-        setTimeout(() => e.target.classList.add('visible'), i * 80);
+        setTimeout(() => e.target.classList.remove('hidden'), i * 80);
         observer.unobserve(e.target);
       }
     });
