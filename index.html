@@ -325,7 +325,7 @@
   const msgs=['INITIALIZING...','LOADING ASSETS...','COMPILING...','READY'];
   let mi=0;
   const msgTimer=setInterval(()=>{mi++;if(mi<msgs.length)loaderPct.textContent=msgs[mi]},1200);
-  window.addEventListener('load',()=>{clearInterval(msgTimer);loaderPct.textContent='READY ✓';setTimeout(()=>loader.classList.add('hide'),400)});
+  window.addEventListener('load',()=>{clearInterval(msgTimer);loaderPct.textContent='READY ✓';setTimeout(()=>loader.classList.add('hide'),1000)});
 
   // Theme toggle
   const themeBtn=document.getElementById('themeToggle');
