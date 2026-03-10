@@ -32,11 +32,12 @@
     color: var(--text);
     font-family: var(--sans);
     overflow-x: hidden;
+    cursor: none;
   }
 
-  /* CUSTOM CURSOR - only active when JS works */
-  body.cursor-active { cursor: none; }
-  body.cursor-active a, body.cursor-active button { cursor: none; }
+  a, button { cursor: none; }
+
+  /* CUSTOM CURSOR */
   .cursor {
     width: 8px; height: 8px;
     background: var(--accent);
@@ -965,8 +966,7 @@
 </footer>
 
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-  // Custom cursor - only activate when JS is running fine
-  document.body.classList.add('cursor-active');
+  // Custom cursor
   const cursor = document.getElementById('cursor');
   const ring = document.getElementById('cursorRing');
   let mx = 0, my = 0, rx = 0, ry = 0;
