@@ -108,7 +108,7 @@
   #projects{background:var(--bg2)}
   .projects-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2px}
   .project-card{background:var(--bg);border:1px solid var(--border);padding:36px;transition:all .3s;position:relative;overflow:hidden;cursor:pointer}
-  .project-card::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(0,255,136,.03),transparent);opacity:0;transition:opacity .3s}
+  .project-card::after{content:'';position:absolute;background:linear-gradient(135deg,rgba(0,255,136,.03),transparent);opacity:0;transition:opacity .3s}
   .project-card:hover{border-color:rgba(0,255,136,.3);transform:translateY(-3px)}
   .project-card:hover::after{opacity:1}
   .project-num{font-family:var(--mono);font-size:11px;color:var(--border);margin-bottom:20px;letter-spacing:2px}
@@ -283,21 +283,21 @@
       <h3 class="project-title">Servelin</h3>
       <p class="project-desc">A full-featured service marketplace platform with vendor/client management, booking flows, and payment integration. Architected for scale with a clean REST API backbone.</p>
       <div class="project-tags"><span class="project-tag">NESTJS</span><span class="project-tag">MSSQL</span><span class="project-tag">REST API</span><span class="project-tag">JWT AUTH</span></div>
-      <a href="https://www.servelin.com/" class="project-link ">View Project →</a>
+      <a href="https://www.servelin.com/" target="_blank" class="project-link">View Project →</a>
     </div>
     <div class="project-card">
       <div class="project-num">// 02</div>
       <h3 class="project-title">RouteIQ</h3>
       <p class="project-desc">An intelligent route optimization system for logistics and delivery operations. Backend-heavy with smart pathfinding algorithms and real-time data processing.</p>
       <div class="project-tags"><span class="project-tag">NESTJS</span><span class="project-tag">MSSQL</span><span class="project-tag">REST API</span><span class="project-tag">POSTMAN</span></div>
-      <a href="#" class="project-link" pointer-events: none !important;>View Project →</a>
+      <a href="#" class="project-link" target="_blank">View Project →</a>
     </div>
     <div class="project-card">
       <div class="project-num">// 03</div>
       <h3 class="project-title">TraveloguePK</h3>
       <p class="project-desc">A travel platform focused on Pakistan — featuring destination listings, trip planning, user reviews, and itinerary management powered by a robust backend API.</p>
       <div class="project-tags"><span class="project-tag">.NET</span><span class="project-tag">MSSQL</span><span class="project-tag">REST API</span><span class="project-tag">SWAGGER</span></div>
-      <a href="#" class="project-link">View Project →</a>
+      <a href="#" class="project-link" target="_blank">View Project →</a>
     </div>
   </div>
 </section>
